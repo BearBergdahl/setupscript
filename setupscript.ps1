@@ -54,24 +54,20 @@ switch ($result) {
     Write-Output "Installing VS Code"
     winget install -e --id Microsoft.VisualStudioCode
 
-    Write-Output "Installing VS Community"
-    winget install -e --id Microsoft.VisualStudio.2022.Community
     Write-Output "Installing Python"
-    winget
+    winget install -e Python.Python.3.12
 
     RefreshEnv.cmd
     Write-Output "Results:"
     Write-Output "Verify installation of Git and Github Desktop, Node/NPM."
-    $gitVersion = git.exe --version
+    $gitVersion = git --version
     Write-Output "git: $gitVersion"
-    $nodeVersion = node.exe -v
+    $nodeVersion = node -v
     Write-Output "Node: $nodeVersion"
-    $npmVersion = npm.cmd -v
+    $npmVersion = npm -v
     Write-Output "npm: $npmVersion"
     $vscodeversion = code -v
     Write-Output "VSCode: $vscodeversion"
-    $dotnetversion = dotnet
-    Write-Output "$dotnetversion"
     $pythonversion = python -V
     Write-Output "Python: $pythonversion"
     }
