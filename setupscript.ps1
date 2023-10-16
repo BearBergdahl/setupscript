@@ -57,7 +57,7 @@ switch ($result) {
     Write-Output "Installing Python"
     winget install -e Python.Python.3.12
 
-    RefreshEnv.cmd
+    
     Write-Output "Results:"
     Write-Output "Verify installation of Git and Github Desktop, Node/NPM."
     $gitVersion = git --version
@@ -70,6 +70,8 @@ switch ($result) {
     Write-Output "VSCode: $vscodeversion"
     $pythonversion = python -V
     Write-Output "Python: $pythonversion"
+    Write-Host -NoNewLine 'Press any key to continue...';
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
     }
   1 { "Aborted." }
   }
