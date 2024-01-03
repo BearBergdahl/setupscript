@@ -70,6 +70,10 @@ switch ($result) {
     Write-Output "VSCode: $vscodeversion"
     $pythonversion = python -V
     Write-Output "Python: $pythonversion"
+    # enables hyper-V for virtual machines necessary for WSL
+    dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+    dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+    wsl --install -d Ubuntu
     Write-Host -NoNewLine 'Press any key to continue...';
     $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
     }
